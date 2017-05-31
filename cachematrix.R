@@ -5,7 +5,7 @@
 ## Step 1: Initialize two objects--x and inv.
 ## Step 2: Define the function for objects of makeCacheMatrix().
 ## Step 3: Create a new object by returining a list().
-## Step 4: Computes the inverse of the matrix bing called in the
+## Step 4: Computes the inverse of the matrix being called in the
 ## first function.
 
 ## The first function creates a matrix that can cache its inverse
@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
       ##get matrix
       get<-function() x
       ##set inverse
-      setinv <- function(solve) x <<-solve
+      setinv <- function(solve) inv <<-solve
       ##get inverse
       getinv <- function() inv
       list(set = set, get = get, setinv = setinv, getinv = getinv)
@@ -34,8 +34,9 @@ cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
       inv<-x$getinv()
       if(!is.null(inv)){
+            message("getting cached inversed matrix")
             return(inv)
-      }
+            }
       else{
             data<-x$get()
             inv<-solve(data, ...)
